@@ -1,0 +1,465 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-09-16 21:16-0700\n"
+"PO-Revision-Date: 2007-09-16 21:16-0700\n"
+"Last-Translator: makoto tsuyuki <mtsuyuki@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: event/views.py:44
+#, python-format
+msgid "You made a reservation to %(event_name)s . Check your status."
+msgstr "%(event_name)s を予約しました。ステータスを確認してください。"
+
+#: event/views.py:47
+msgid "You are put on a waiting list for cancellation"
+msgstr "キャンセル待ちです。"
+
+#: event/views.py:58
+msgid ""
+"Capacity is full already. You are going to putting on a waiting list for "
+"cancellation"
+msgstr "申し込み受付人数を超えていますので、キャンセル待ちになります。"
+
+#: event/views.py:60
+#, python-format
+msgid "Will you attend %(event_name)s ?"
+msgstr "%(event_name)s に申し込みをしますか？"
+
+#: event/views.py:63
+#, python-format
+msgid "You already joined event \"%(event_name)s\"."
+msgstr "%(event_name)s に申し込み済みです。"
+
+#: event/views.py:72
+msgid "You can make a cancel only claimable period."
+msgstr "申し込み期間中のみキャンセルできます。"
+
+#: event/views.py:81
+#, python-format
+msgid "Your claim was removed from \"%(event_name)s\"."
+msgstr "%(event_name)s の申し込みをキャンセルしました。"
+
+#: event/views.py:100
+msgid "Your Position Paper successfully updated."
+msgstr "ポジションペーパを更新しました。"
+
+#: event/views.py:115
+msgid "Only Attendant or Staff can add document."
+msgstr "申し込みをした方かスタッフのみドキュメントを追加できます。"
+
+#: event/views.py:126
+msgid "Document upload successfully."
+msgstr "ドキュメントをアップロードしました。"
+
+#: event/views.py:145
+#, python-format
+msgid "Invitation from %s"
+msgstr "%s からの招待状"
+
+#: event/views.py:188
+msgid "Profile update successfully."
+msgstr "プロフィールを更新しました。"
+
+#: event/views.py:233
+msgid "Profile image update successfully."
+msgstr "プロフィール画像をアップロードしました。"
+
+#: event/views.py:248
+msgid "Only Attendant or Staff can add comment."
+msgstr "申し込みをした方かスタッフのみコメントできます。"
+
+#: event/views.py:258
+msgid "Your comment successfully added. thanx!"
+msgstr "コメントを追加しました。"
+
+#: event/views.py:283
+msgid "You don't have permission to trackback this entry"
+msgstr "トラックバックする権限がありません。"
+
+#: event/views.py:284
+#, python-format
+msgid "Trackback to %(event_name)s is permitted only attendant."
+msgstr "%(event_name)s にトラックバックできるのは、申込者のみです。申込者はプロフィールのブログURLを確認してください。"
+
+#: event/views.py:293
+msgid "Your Trackabck has input error(s)"
+msgstr "入力に問題があります。"
+
+#: event/models.py:39
+msgid "Place to hold"
+msgstr "開催場所"
+
+#: event/models.py:40 event/models.py:41
+msgid "Latitude"
+msgstr "ラティチュード"
+
+#: event/models.py:55
+msgid "Event Name"
+msgstr "イベント名"
+
+#: event/models.py:56
+msgid "Sub Title"
+msgstr "サブタイトル"
+
+#: event/models.py:58
+msgid "Event start time"
+msgstr "イベント開始日時"
+
+#: event/models.py:59
+msgid "Event finish taime"
+msgstr "イベント終了予定"
+
+#: event/models.py:62
+msgid "Date and Time to start applying"
+msgstr "申し込み受付開始日時"
+
+#: event/models.py:63
+msgid "Date and Time to finish applying"
+msgstr "申し込み受付終了日時"
+
+#: event/models.py:64
+msgid "Position Paper Template"
+msgstr "ポジションペーパテンプレート"
+
+#: event/models.py:81
+msgid "Title"
+msgstr "タイトル"
+
+#: event/models.py:82
+msgid "URL"
+msgstr "URL"
+
+#: event/models.py:83
+msgid "Schedule"
+msgstr "スケージュール"
+
+#: event/models.py:84
+msgid "Info"
+msgstr "インフォーメーション"
+
+#: event/models.py:114
+msgid "Specification Text"
+msgstr "仕様"
+
+#: event/models.py:122
+msgid "Modify this structured text."
+msgstr "上のテキストをあなたにあうように編集してください。"
+
+#: event/models.py:154
+msgid "Activation Key"
+msgstr "Activation Key"
+
+#: event/models.py:155
+msgid "Activate Flag"
+msgstr "Activate Flag"
+
+#: event/models.py:156 event/forms.py:9
+msgid "Email"
+msgstr "メールアドレス"
+
+#: event/forms.py:12 event/templates/login.html:17
+#: event/templates/auth/user_home.html:14 event/templates/snippet/login.html:6
+msgid "Username"
+msgstr "ユーザ名"
+
+#: event/forms.py:13
+msgid "Password"
+msgstr "パスワード"
+
+#: event/forms.py:14
+msgid "Confirm Passowrd"
+msgstr "パスワード(確)"
+
+#: event/forms.py:20 event/forms.py:56
+msgid "This value must contain only letters, numbers and underscores."
+msgstr "半角英数とアンダースコアのみで入力してください。"
+
+#: event/forms.py:23
+msgid "You can't use this username(prohibited)."
+msgstr "このユーザ名は禁止されています。"
+
+#: event/forms.py:26
+msgid "Username already taken."
+msgstr "同じユーザ名が既に使われてしまっています。"
+
+#: event/forms.py:34
+msgid "Confirm password."
+msgstr "パスワードを確認してください。"
+
+#: event/forms.py:45
+msgid "JPEG, PNG, GIF only."
+msgstr "JPEGかPNGかGIFのみ受け付けます。"
+
+#: event/templates/login.html:5 event/templates/base.html:41
+msgid "Login"
+msgstr "ログイン"
+
+#: event/templates/login.html:14 event/templates/login.html.py:21
+#: event/templates/snippet/login.html:5 event/templates/snippet/login.html:10
+msgid "Sign In"
+msgstr "ログイン"
+
+#: event/templates/login.html:19 event/templates/snippet/login.html:8
+msgid "Passowrd"
+msgstr "パスワード"
+
+#: event/templates/base.html:36
+msgid "Event List"
+msgstr "イベントリスト"
+
+#: event/templates/base.html:38 event/templates/auth/user_home.html:11
+msgid "Your Profile"
+msgstr "プロフィール"
+
+#: event/templates/base.html:39
+msgid "Logout"
+msgstr "ログアウト"
+
+#: event/templates/base.html:42
+msgid "Create Account"
+msgstr "アカウント作成"
+
+#: event/templates/base.html:51
+msgid "Sign in as"
+msgstr "Sign in as"
+
+#: event/templates/auth/user_detail.html:5
+#: event/templates/auth/user_home.html:5
+msgid "User Detail of "
+msgstr "ユーザ詳細 "
+
+#: event/templates/auth/user_detail.html:13
+msgid "Nickname"
+msgstr "ニックネーム"
+
+#: event/templates/auth/user_detail.html:14
+msgid "Blog"
+msgstr "ブログ URL"
+
+#: event/templates/auth/user_detail.html:15
+msgid "Twitter"
+msgstr "Twitter アカウント"
+
+#: event/templates/auth/user_detail.html:16
+msgid "Pownce"
+msgstr "Pownce アカウント"
+
+#: event/templates/auth/user_detail.html:24
+msgid "Attended events"
+msgstr "申し込んだイベント"
+
+#: event/templates/auth/user_detail.html:34
+#: event/templates/auth/user_detail.html:49
+#: event/templates/auth/user_detail.html:64
+msgid "Not yet."
+msgstr "まだありません。"
+
+#: event/templates/auth/user_detail.html:39
+msgid "Added Comments"
+msgstr "コメント履歴"
+
+#: event/templates/auth/user_detail.html:54
+msgid "Added Documents"
+msgstr "ドキュメント履歴"
+
+#: event/templates/auth/user_home.html:17
+msgid "Update your profile"
+msgstr "プロフィール更新"
+
+#: event/templates/auth/user_home.html:21
+msgid "Your Icon"
+msgstr "アイコン"
+
+#: event/templates/event/event_list.html:5
+#: event/templates/event/event_list.html:9
+msgid "Event list"
+msgstr "イベントリスト"
+
+#: event/templates/event/event_list.html:18
+msgid "Recent Comments"
+msgstr "最新コメント"
+
+#: event/templates/event/event_list.html:34
+msgid "Recent Documents"
+msgstr "最新ドキュメント"
+
+#: event/templates/event/event_list.html:53
+msgid "Recent Trackbacks"
+msgstr "最新トラックバック"
+
+#: event/templates/event/regist.html:4
+msgid "Regist"
+msgstr "登録"
+
+#: event/templates/event/regist.html:8
+msgid "Are you sure to regist yourself to Django-Event?"
+msgstr "このサイトに登録しますか？"
+
+#: event/templates/event/regist.html:15
+msgid "Regist me!"
+msgstr "登録します！"
+
+#: event/templates/event/invite.html:4
+msgid "Invite to Django Event Site."
+msgstr "Djangoのイベントサイトに招待。"
+
+#: event/templates/event/invite.html:8
+msgid "Are you sure to invite yourself to Django-Event?"
+msgstr "Djangoのイベントサイトに招待しますがよろしいですか？"
+
+#: event/templates/event/invite.html:13
+msgid "Invite me!"
+msgstr "招待して！"
+
+#: event/templates/event/edit_position_paper.html:4
+msgid "Edit Position Paper"
+msgstr "ポジションペーパの編集"
+
+#: event/templates/event/edit_position_paper.html:8
+msgid "Edit Your Position Paper."
+msgstr "ポジションペーパの編集"
+
+#: event/templates/event/edit_position_paper.html:15
+msgid "Update Position Paper"
+msgstr "ポジションペーパを更新"
+
+#: event/templates/event/cancel_confirm.html:4
+msgid "Cancel?"
+msgstr "キャンセルしますか？"
+
+#: event/templates/event/cancel_confirm.html:8
+msgid "Are you sure to cancel your claim?"
+msgstr "申し込みをキャンセルしますか？"
+
+#: event/templates/event/cancel_confirm.html:11
+#: event/templates/event/event_detail.html:96
+#: event/templates/event/event_detail.html:121
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: event/templates/event/upload_document.html:4
+#: event/templates/event/event_detail.html:57
+msgid "Upload Document"
+msgstr "ドキュメントのアップロード"
+
+#: event/templates/event/upload_document.html:8
+msgid "Upload document."
+msgstr "ドキュメントのアップロード"
+
+#: event/templates/event/upload_document.html:15
+msgid "Upload document"
+msgstr "ドキュメントのアップロード"
+
+#: event/templates/event/event_detail.html:22
+msgid "Comments"
+msgstr "コメント"
+
+#: event/templates/event/event_detail.html:31
+msgid "No Comments yet."
+msgstr "コメントはありません。"
+
+#: event/templates/event/event_detail.html:36
+#: event/templates/event/add_comment.html:4
+msgid "Add Comment"
+msgstr "コメント追加"
+
+#: event/templates/event/event_detail.html:41
+msgid "Documents"
+msgstr "ドキュメント"
+
+#: event/templates/event/event_detail.html:52
+msgid "No Documents yet."
+msgstr "ドキュメントはありません。"
+
+#: event/templates/event/event_detail.html:62
+msgid "Trackbacks"
+msgstr "トラックバック"
+
+#: event/templates/event/event_detail.html:71
+msgid "No Trackbacks yet."
+msgstr "トラックバックはありません。"
+
+#: event/templates/event/event_detail.html:75
+msgid "send trackback to"
+msgstr "トラックバック送信先"
+
+#: event/templates/event/event_detail.html:88
+msgid "Attendant"
+msgstr "参加者"
+
+#: event/templates/event/event_detail.html:97
+#: event/templates/event/event_detail.html:122
+msgid "Edit"
+msgstr "編集"
+
+#: event/templates/event/event_detail.html:113
+msgid "Waiting People"
+msgstr "キャンセル待ち"
+
+#: event/templates/event/event_detail.html:139
+msgid "Staff"
+msgstr "スタッフ"
+
+#: event/templates/event/claim.html:4 event/templates/event/claim.html.py:8
+#: event/templates/event/claim.html:26
+msgid "Claim"
+msgstr "申し込み"
+
+#: event/templates/event/claim.html:31
+msgid "Claim!"
+msgstr "申し込む！"
+
+#: event/templates/event/invite_mail_sent.html:4
+msgid "Check Your Mail box"
+msgstr "メールをチェックしてください。"
+
+#: event/templates/event/invite_mail_sent.html:9
+msgid "Invitation email was sent. Check Your Mail box"
+msgstr "招待メールを送信しました。メールをチェックしてください。"
+
+#: event/templates/event/add_comment.html:8
+msgid "Post Your Comment to"
+msgstr "コメントを投稿する to "
+
+#: event/templates/event/add_comment.html:12
+msgid "Preview"
+msgstr "プレビュー"
+
+#: event/templates/event/add_comment.html:18
+msgid "Post comment"
+msgstr "コメントする"
+
+#: event/templates/event/add_comment.html:29
+msgid "Preview Comment"
+msgstr "コメントプレビュー"
+
+#: event/templates/snippet/claim_snippet.html:6
+msgid "Claim not acceptable. See period for acceptance."
+msgstr "申し込みは受け付けていません。申し込み受け付け期間を確認してください。"
+
+#: event/templates/snippet/claim_snippet.html:9
+msgid "Claim it!"
+msgstr "申し込む！"
+
+#: event/templates/snippet/claim_snippet.html:11
+msgid "To Claim this event. You need login."
+msgstr "イベントに申し込むには、ログインしてください。"
+
+#: event/templates/snippet/claim_snippet.html:12
+msgid "Or create account first?"
+msgstr "先にアカウント作成？"
+
+#: event/templates/snippet/login.html:11
+msgid "Create Your Account?"
+msgstr "アカウントを作成しますか？"

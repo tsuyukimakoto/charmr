@@ -1,0 +1,86 @@
+{% extends 'event/base.html' %}
+{% load i18n %}
+{% load markup %}
+
+{% block title %}{% trans 'Event list' %}{% endblock title %}
+
+
+{% block overview %}
+		<h1><a href=".">{% trans 'Event list' %}</a></h1>
+{% endblock overview %}
+
+
+{% block updates %}
+<div id="updates" class="boxed">
+
+    {% for item in recent_comment %}
+      {% if forloop.first %}
+        <h2 class="title">{% trans 'Recent Comments' %}</h2>
+        <div class="content">
+                <ul>
+      {% endif %}
+                        <li>
+                                <h3>{{ item.date|date:"Y/m/d" }} {{ item.date|date:"A g:i" }} <a href="{% url user_detail item.user.username %}">{{ item.user.get_profile.nickname|escape }}</a></h3>
+                                <p><a href="{% url event_detail item.event.slug %}">{{ item.comment|escape|linebreaksbr|urlize }}</a></p>
+                        </li>
+      {% if forloop.last %}
+                </ul>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    {% for item in recent_document %}
+      {% if forloop.first %}
+        <h2 class="title">{% trans 'Recent Documents' %}</h2>
+        <div class="content">
+                <ul>
+      {% endif %}
+                        <li>
+                                <h3>{{ item.date|date:"Y/m/d" }} {{ item.date|date:"A g:i" }} <a href="{% url user_detail item.user.username %}">{{ item.user.get_profile.nickname|escape }}</a></h3>
+                                <p>
+                                    <a href="{% url event_detail item.event.slug %}">{{ item.title|escape|linebreaksbr|urlize }}</a> (<a href="{{ item.get_document_url }}">DL</a>)<br />
+                                    {{ item.description|escape|linebreaksbr|urlize }}
+                                </p>
+                        </li>
+      {% if forloop.last %}
+                </ul>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    {% for item in recent_trackback %}
+      {% if forloop.first %}
+        <h2 class="title">{% trans 'Recent Trackbacks' %}</h2>
+        <div class="content">
+                <ul>
+      {% endif %}
+                        <li>
+                                <h3>{{ item.date|date:"Y/m/d" }} {{ item.date|date:"A g:i" }} <a href="{{ item.url|escape }}" rel="nofollow">{{ item.blog_name|escape }}</a></h3>
+                                <p><a href="{% url event_detail item.event.slug %}">{{ item.excerpt|escape|linebreaksbr }}</a></p>
+                        </li>
+      {% if forloop.last %}
+                </ul>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+
+</div>
+{% endblock %}
+
+
+
+
+
+{% block main %}
+    
+      {% for object in object_list %}
+      <div class="section">
+            <h2 class="title"><a href="{{ object.get_absolute_url }}">{{ object.name|escape }}</a></h2>
+            <h3 class="date">開催日：{% if object.time_to_start %}{{ object.time_to_start|date:"Y/m/d" }} {{ object.time_to_start|date:"A g:i" }} 〜 {% else %}未定{% endif %}</h3>
+            <div class="meta">
+                    <p>{{ object.sub_title|escape }}</p>
+            </div>
+      </div>
+      {% endfor %}
+{% endblock %}

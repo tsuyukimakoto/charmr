@@ -1,0 +1,16 @@
+{% load i18n %}
+
+      <div class="section">
+        <div class="user_action">
+      {% if not object.is_claimable %}
+        <h3>{% trans 'Claim not acceptable. See period for acceptance.' %}</h3>
+      {% else %}
+        {% if user.is_authenticated %}
+            <h3><a href="{% url claim object.slug %}">{% trans 'Claim it!' %}</a></h3>
+        {% else %}
+            <h3><a href="{% url login %}">{% trans 'To Claim this event. You need login.' %}</a></h3>
+            <h4><a href="{% url invite %}">{% trans 'Or create account first?' %}</a></h4>
+        {% endif %}
+      {% endif %}
+        </div>
+      </div>

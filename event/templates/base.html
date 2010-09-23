@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+{% load i18n %}
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Title      : Pollinate
+Version    : 1.0
+Released   : 20070408
+Description: A two-column fixed-width template suitable for blogs and small business websites.
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{% block title %}Django Event{% endblock title %}</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="{{ MEDIA_URL }}/skin/css/default.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="header">
+	<div id="logo">
+            {% block overview %}
+		<h1><a href="#">Event</a></h1>
+		<h2><a href="http://www.freecsstemplates.org/"> with Django</a></h2>
+            {% endblock overview %}
+	</div>
+	<div id="splash"><a href="#"><img src="{{ MEDIA_URL }}/skin/images/img02.jpg" alt="" width="520" height="200" /></a></div>
+</div>
+<div id="content">
+	<div id="sidebar">
+		<div id="menu">
+			<ul>
+				<li><a href="{% url event_list %}" title="{% trans 'Event List' %}">{% trans 'Event List' %}</a></li>
+                {% if user.is_authenticated %}
+				<li><a href="{% url user_home %}" title="{% trans 'Your Profile' %}">{% trans 'Your Profile' %}</a></li>
+				<li><a href="{% url logout %}" title="">{% trans 'Logout' %}</a></li>
+                {% else %}
+				<li><a href="{% url login %}" title="{% trans 'Login' %}">{% trans 'Login' %}</a></li>
+				<li><a href="{% url invite %}" title="{% trans 'Create Account' %}">{% trans 'Create Account' %}</a></li>
+                {% endif %}
+			</ul>
+		</div>
+                {% block login_box %}
+                {% if user.is_authenticated %}
+		<div id="login" class="boxed">
+			<h2 class="title">Account</h2>
+			<div class="content">
+                                {% trans "Sign in as" %} <a href="{% url user_detail user.username %}">{{ user.username|escape }}</a>
+			</div>
+		</div>
+                {% endif %}
+                {% endblock %}
+                
+                {% block updates %}
+                {% comment %}
+		<div id="updates" class="boxed">
+			<h2 class="title">Recent Updates</h2>
+			<div class="content">
+				<ul>
+					<li>
+						<h3>March 5, 2007</h3>
+						<p><a href="#">In posuere eleifend odio quisque semper augue mattis wisi maecenas ligula&#8230;</a></p>
+					</li>
+					<li>
+						<h3>March 3, 2007</h3>
+						<p><a href="#">Quisque dictum integer nisl risus, sagittis convallis, rutrum id, congue, and nibh&#8230;</a></p>
+					</li>
+					<li>
+						<h3>February 28, 2007</h3>
+						<p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum&#8230;</a></p>
+					</li>
+					<li>
+						<h3>February 25, 2007</h3>
+						<p><a href="#">Nam pede erat, porta eu, lobortis eget, tempus et, tellus. Etiam nequea&#8230;</a></p>
+					</li>
+					<li>
+						<h3>February 20, 2007</h3>
+						<p><a href="#">Vivamus fermentum nibh in augue. Praesent a lacus at urna congue rutrum. Nulla enim eros&#8230;</a></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+                {% endcomment %}
+                {% endblock %}
+	</div>
+	<div id="main">
+            {% if form and form.errors %}
+            <div class="error">
+                <ul>
+                    {{ form.errors }}
+                </ul>
+            </div>
+            {% endif %}
+{% if messages %}
+            <div class="message">
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            </div>
+{% endif %}
+            {% block main %}
+		<div id="welcome" class="post">
+			<h2 class="title">Welcome to Pollinate!</h2>
+			<h3 class="date"><span class="month">Mar.</span> <span class="day">8</span><span class="year">, 2007</span></h3>
+			<div class="meta">
+				<p>Posted by Jane Anderson under <a href="#">Uncategorized</a>, <a href="#">Daily Journal</a><br />
+					<a href="#">Trackback URI</a> | <a href="#">No Comments</a> | <a href="#">Permalink</a></p>
+			</div>
+			<div class="story">
+				<p><strong>Pollinate</strong> is a free template from <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> released under a <a href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 License</a>. The photo is from <a href="http://www.pdphoto.org/">PDPhoto.org</a>. You're free to use it for both commercial or personal use. I only ask that you link back to my site in some way. <em>Enjoy :)</em></p>
+			</div>
+		</div>
+		<div id="example" class="post">
+			<h2 class="title">Examples of Common Tags</h2>
+			<h3 class="date"><span class="month">Feb.</span> <span class="day">24</span><span class="year">, 2007</span></h3>
+			<div class="meta">
+				<p>Posted by Jane Anderson under <a href="#">Samples</a><br />
+					<a href="#">Trackback URI</a> | <a href="#">No Comments</a> | <a href="#">Permalink</a></p>
+			</div>
+			<div class="story">
+				<p>This is an example of a paragraph followed by a blockquote. In posuere  eleifend odio. Quisque semper augue mattis wisi. Maecenas ligula.  Pellentesque viverra vulputate enim. Aliquam erat volutpat lorem ipsum  dolorem.</p>
+				<blockquote>
+					<p>&ldquo;Pellentesque tristique ante ut  risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum  id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec  placerat odio.&rdquo;</p>
+				</blockquote>
+				<h3>Heading Level Three</h3>
+				<p>This is another example of a paragraph followed by an unordered list. In posuere  eleifend odio. Quisque semper augue mattis wisi. Maecenas ligula.  Pellentesque viverra vulputate enim. Aliquam erat volutpat lorem ipsum  dolorem.</p>
+				<p>An ordered list example:</p>
+				<ol>
+					<li>List item number one</li>
+					<li>List item number two</li>
+					<li>List item number thre</li>
+				</ol>
+			</div>
+		</div>
+            {% endblock main %}
+	</div>
+	<div id="extra" style="clear: both;"></div>
+</div>
+<div id="footer">
+	<p id="legal">Copyright &copy; 2007 Pollinate. All Rights Reserved. Designed by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+	<p id="links"><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+</div>
+</body>
+</html>

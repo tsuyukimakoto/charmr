@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block overview %}
+		<h1>{% trans 'User Detail of ' %}{{ object.get_profile.nickname|escape }}</a></h1>
+{% endblock %}
+
+{% block main %}
+  <div class="section">
+    <div class="user_action">
+        <h2>{{ object.get_profile.nickname|escape }}のプロフィール</h2>
+        <table>
+          <tr><td rowspan="5"><img src="{{ object.get_profile.large_icon_url }}" class="large_icon" /></td><th>{% trans 'Nickname' %}:</th><td>{{ object.get_profile.nickname|escape }}</td></tr>
+          <tr><th>{% trans 'Blog' %}:</th><td>{% if object.get_profile.blog_url %}<a href="{{ object.get_profile.blog_url|escape }}" rel="nofollow">{{ object.get_profile.blog_url|escape }}</a>{% endif %}</td></tr>
+          <tr><th>{% trans 'Twitter' %}:</th><td>{% if object.get_profile.twitter_name %}<a href="http://twitter.com/{{ object.get_profile.twitter_name|escape }}" rel="nofollow">{{ object.get_profile.twitter_name|escape }}</a>{% endif %}</td></tr>
+          <tr><th>{% trans 'Pownce' %}:</th><td>{% if object.get_profile.pownce_name %}<a href="http://pownce.com/{{ object.get_profile.pownce_name|escape }}/" rel="nofollow">{{ object.get_profile.pownce_name|escape }}</a>{% endif %}</td></tr>
+          <tr><th></th><td></td></tr>
+        </table>
+        
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="title">{% trans "Attended events" %}</h2>
+    {% if object.attendant_set.all %}
+    <table>
+      {% for attendant in object.attendant_set.all %}
+      <tr>
+        <th>{% if attendant.event.time_to_start %}{{ attendant.event.time_to_start|date:"Y/m/d" }}{% endif %}</th>
+        <td><a href="{% url event_detail attendant.event.slug %}">{{ attendant.event.name|escape }}</a><br />{{ attendant.event.sub_title|escape }}</td></tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>{% trans "Not yet." %}</p>
+    {% endif %}
+  </div>
+      
+  <div class="section">
+    <h2 class="title">{% trans "Added Comments" %}</h2>
+    {% if object.eventcomment_set.all %}
+    <table>
+      {% for comment in object.eventcomment_set.all %}
+      <tr>
+        <th>{{ comment.date|date:"Y/m/d" }} {{ comment.date|date:"A g:i" }} </th>
+        <td><a href="{% url event_detail comment.event.slug %}">{{ comment.event.name|escape }}</a></td></tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>{% trans "Not yet." %}</p>
+    {% endif %}
+  </div>
+
+  <div class="section">
+    <h2 class="title">{% trans "Added Documents" %}</h2>
+    {% if object.eventfile_set.all %}
+    <table>
+      {% for file in object.eventfile_set.all %}
+      <tr>
+        <th>{{ file.date|date:"Y/m/d" }} {{ file.date|date:"A g:i" }} </th>
+        <td><a href="{{ file.get_document_url }}">{{ file.title|escape }}</a> (<a href="{% url event_detail file.event.slug %}">{{ file.event.name|escape }}</a>)</td></tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>{% trans "Not yet." %}</p>
+    {% endif %}
+  </div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block overview %}
+		<h1>{% trans 'User Detail of ' %}{{ object.get_profile.nickname|escape }}</a></h1>
+{% endblock %}
+
+{% block main %}
+  <div class="section">
+    <div class="user_action">
+        <h2>{% trans 'Your Profile' %}</h2>
+        <form method="POST">
+          <table>
+          <tr><th><label for="id_username">{% trans 'Username' %}</label></th><td>{{ user.username|escape }}</td></tr>
+          {{ profile_form }}
+          </table>
+          <input type="submit" value="{% trans 'Update your profile' %}" />
+        </form>
+    </div>
+    <div class="user_action">
+        <h2>{% trans 'Your Icon' %}</h2>
+        <img src="{{ user.get_profile.large_icon_url }}" class="large_icon" />
+        <form action="{% url upload_icon user.username %}" method="post" enctype="multipart/form-data"><input type="file" name="icon" /><input type="submit" value="upload" /></form>
+    </div>
+  </div>
+{% endblock %}

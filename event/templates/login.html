@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+
+{% block title %}{% trans 'Login' %}{% endblock title %}
+
+{% block overview %}{% endblock %}
+
+{% block login_box %}{% endblock %}
+
+{% block main %}
+    <div class="section">
+        <div id="login" class="user_action">
+            <h2>{% trans 'Sign In' %}</h2>
+            <form method="post" action="{% url login %}">
+                <fieldset>
+                <label for="id_username">{% trans 'Username' %}:</label>
+                {{ login_form.username }}<br />
+                <label for="id_password">{% trans 'Passowrd' %}:</label>
+                {{ login_form.password }}
+                <input type="submit" name="login" value="{% trans 'Sign In' %}" />
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% load i18n %}
+
+    <form method="post" action="{% url login %}">
+            <fieldset>
+            <legend>{% trans 'Sign In' %}</legend>
+            <label for="id_username">{% trans 'Username' %}:</label>
+            {{ login_form.username }}
+            <label for="id_password">{% trans 'Passowrd' %}:</label>
+            {{ login_form.password }}
+            <input type="submit" name="inputsubmit1" value="{% trans 'Sign In' %}" />
+            <p><a href="#">{% trans "Create Your Account?" %}</a></p>
+            </fieldset>
+    </form>

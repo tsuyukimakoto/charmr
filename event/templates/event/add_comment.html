@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans 'Add Comment' %} | {{ object.name|escape }}{% endblock title %}
+
+{% block main %}
+  <div class="section">
+    <h2>{% trans 'Post Your Comment to' %} {{ object.name|escape }}</h2>
+    <h3>※ 登録したデータは、将来 http://www.djangoproject.jp/ へ移行される予定です。</h3>
+    {% if preview_data %}
+    <div class="section">
+      <h3>{% trans 'Preview' %}</h3>
+      <div class="user_action">
+        {{ preview_data|escape|urlize|linebreaksbr }}
+        <form method="POST">
+          <input type="hidden" name="mode" value="post" />
+          <input type="hidden" name="comment" value="{{ preview_data|escape }}" />
+          <input type="submit" value="{% trans 'Post comment' %}" />
+        </form>
+      </div>
+    </div>
+    {% endif %}
+    <div class="user_action">
+        <form method="POST">
+          <table>
+            <input type="hidden" name="mode" value="preview" />
+            {{ form.comment }}
+          </table>
+            <input type="submit" value="{% trans 'Preview Comment' %}" />
+        </form>
+    </div>
+  </div>
+{% endblock %}

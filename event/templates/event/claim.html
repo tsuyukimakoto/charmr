@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans 'Claim' %} {{ object.name|escape }}{% endblock title %}
+
+{% block overview %}
+		<h1><a href=".">{{ object.name|escape }}</a></h1>
+		<h2>{% trans 'Claim' %}</h2>
+{% endblock overview %}
+
+{% block main %}
+  <div class="section">
+    <div class="section>
+        <h2><a href=".">{{ object.name|escape }}</a></h2>
+        <h2><a href=".">{{ object.sub_title|escape }}</a></h2>
+        <h3>
+            開催日時: {% if object.time_to_start %}{{ object.time_to_start|date:"Y/m/d" }} {{ object.time_to_start|date:"A g:i" }} 〜 {% else %}未定{% endif %}
+            {% if object.time_to_finish %} {{ object.time_to_finish|date:"Y/m/d" }} {{ object.time_to_finish|date:"A g:i" }}{% else %}未定{% endif %}
+        </h3>
+        <h3>
+            受付期間: {% if object.apply_from %}{{ object.apply_from|date:"Y/m/d" }} {{ object.apply_from|date:"A g:i" }} 〜 {% else %}未定{% endif %}
+            {% if object.apply_to %}{{ object.apply_to|date:"Y/m/d" }} {{ object.apply_to|date:"A g:i" }}{% else %}未定{% endif %}
+        </h3>
+    </div>
+    <div class="user_action">
+        <h2>{% trans 'Claim' %}</h2>
+        <form method="POST">
+          <table>
+          {{ form }}
+          </table>
+          <input type="submit" value="{% trans 'Claim!' %}" />
+        </form>
+    </div>
+  </div>
+{% endblock %}

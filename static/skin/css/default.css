@@ -1,0 +1,420 @@
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 20px 0;
+	background: #FFFFFF;
+	font: normal small Arial, Helvetica, sans-serif;
+	color: #666666;
+}
+
+h1, h2, h3 {
+	color: #000000;
+}
+
+h2 {
+}
+
+h3 {
+}
+
+p, blockquote, ul, ol {
+}
+
+p {
+}
+
+ul {
+	margin-left: 3em;
+}
+
+ul li {
+}
+
+ol {
+	margin-left: 3em;
+}
+
+ol li {
+}
+
+a {
+	color: #0072BC;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #59C700;
+}
+
+img {
+	border: none;
+}
+
+/* Boxed Style */
+
+.boxed {
+}
+
+.boxed .title {
+	height: 23px;
+	padding: 15px 0 0 19px;
+	background: #8CBEF5 url(../images/img03.gif) repeat-x left bottom;
+	border: 1px solid #4F9CEF;
+	font-size: 1em;
+	color: #FFFFFF;
+}
+
+.boxed .content {
+	margin: 0 0 20px 0;
+	padding: 20px 20px 10px 20px;
+	background: #DCEBFC;
+}
+
+.action {
+	padding: 2px 10px;
+	margin-top: 1em;
+	background-color: white;
+	border: 1px solid #4F9CEF;
+	font-size: 1em;
+	color: #FFFFFF;
+}
+
+/* Section */
+
+.section, .staff {
+	padding: 20px 20px 10px 20px;
+}
+
+.section h2, .staff h2 {
+	margin-bottom: 0px;
+	padding: 3px 0 15px 0;
+	background: url(../images/img04.gif) repeat-x left bottom;
+	border-bottom: 1px solid #EEEEEE;
+}
+
+.section .date {
+	float: left;
+	width: 90px;
+	padding-left: 20px;
+	font-size: x-small;
+}
+
+.section .date .month {
+}
+
+.section .date .day {
+}
+
+.section .date .year {
+}
+
+.section .meta {
+	float: left;
+	margin-bottom: 10px;
+	padding-left: 20px;
+	border-left: 1px solid #EEEEEE;
+	font-size: x-small;
+}
+
+.section .meta p {
+}
+
+
+.section p, .section pre .literal-block {
+	padding: 0px 20px;
+	margin-bottom: 1.5em;
+	line-height: 180%;
+}
+
+.section pre.literal-block {
+	margin-left: 2em;
+	padding-left: 1em;
+	border-left: 1px solid #EEEEEE;
+}
+
+.section h3, .section h4 {
+	padding: 0px 20px;
+	margin-bottom: 0.5em;
+}
+
+.user_action {
+	padding: inherit;
+	background-color: rgb(220, 250, 230);
+}
+
+/* Header */
+
+#header {
+	width: 760px;
+	height: 200px;
+	margin: 0 auto;
+}
+
+/* Logo */
+
+#logo {
+	float: left;
+	width: 220px;
+	height: 200px;
+	padding: 0 0 0 20px;
+	background: url(../images/img01.jpg) no-repeat;
+}
+
+#logo h1 {
+	padding: 20px 5px 0 0;
+	font-size: 2em;
+}
+
+#logo h2 {
+	padding: 2px 5px 5px 0;
+	font-size: 1em;
+}
+
+#logo h3, #logo h4 {
+	color: #F0FFF0;
+	padding: 3px 5px 0 0;
+	font-size: 0.8em;
+}
+
+#logo a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+/* Splash */
+
+#splash {
+	float: right;
+	width: 520px;
+	height: 200px;
+}
+
+/* Content */
+
+#content {
+	width: 760px;
+	margin: 0 auto;
+}
+
+#extra {
+}
+
+/* Content > Main */
+
+#main {
+	float: right;
+	width: 520px;
+}
+
+#main a {
+}
+
+/* Content > Main > Welcome */
+
+#welcome {
+}
+
+/* Content > Main > Example */
+
+#example {
+}
+
+/* Content > Sidebar */
+
+#sidebar {
+	float: left;
+	width: 240px;
+}
+
+#sidebar a {
+}
+
+/* Content > Sidebar > Login */
+
+.error {
+	margin-top: 1em;
+	padding: 1em;
+	background-color: rgb(255, 135, 100);
+}
+
+.message {
+	margin-top: 1em;
+	padding: 1em;
+	background-color: rgb(255, 235, 200);
+}
+
+.user_action {
+	margin-top: 1em;
+}
+
+.user_action form {
+}
+
+.user_action th {
+	text-align: right;
+}
+
+.user_action fieldset {
+	border: none;
+}
+
+.user_action legend {
+	display: none;
+}
+
+.user_action label {
+	font-size: x-large;
+	font-weight: bold;
+}
+
+.user_action input {
+	font-size: x-large;
+	margin-bottom: 5px;
+	padding: 2px 5px;
+	border: 1px solid #385B88;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.user_action textarea {
+	font-size: small;
+	width: 100%;
+	margin-bottom: 5px;
+	padding: 2px 5px;
+	border: 1px solid #385B88;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.user_action #id_username, .user_action #id_password {
+	width: 365px;
+	color: #385B88;
+}
+
+.user_action input:focus {
+	background: #AFCCFF url(../images/img03.gif) repeat-x left bottom;
+	color: #FFFFFF;
+}
+
+.large_icon { border: 5px solid rgb(200,200,255); }
+
+.attendant tr.odd, .waiting tr.odd {
+	background-color: rgb(230, 230, 250);
+}
+.attendant tr.even, .waiting tr.even {
+	background-color: rgb(220, 250, 220);
+}
+
+th {
+	text-align: right;
+	vertical-align: top;
+}
+
+table.information {
+	padding: 0px 20px;
+}
+
+.information th, .information td {
+	padding: 5px;
+	border: 1px solid rgb(160,160,200);
+}
+
+/* Content > Sidebar > Menu */
+
+#menu {
+	padding: 20px 0;
+}
+
+#menu ul {
+	margin: 0;
+	list-style: none;
+}
+
+#menu li {
+	display: inline;
+}
+
+#menu a {
+	display: block;
+	padding: 10px 20px;
+	border-top: 1px solid #EEEEEE;
+	text-decoration: none;
+	font-weight: bold;
+	color: #666666;
+}
+
+#menu a:hover {
+	background: #DCEBFC;
+	color: #000000;
+}
+
+#menu .active a {
+	background: #D1F0A6;
+	color: #000000;
+}
+
+#menu .first a {
+	border: none;
+}
+
+/* Content > Sidebar > Updates */
+
+#updates {
+}
+
+#updates ul {
+	margin: 0;
+	list-style: none;
+}
+
+#updates h3 {
+	margin: 0;
+	font-size: x-small;
+}
+
+#updates p {
+	margin-bottom: 1.4em;
+	font-size: smaller;
+	line-height: normal;
+}
+
+/* Footer */
+
+#footer {
+	clear: both;
+	width: 720px;
+	margin: 0 auto;
+	padding: 10px 20px;
+	background: #E7F7D0 url(../images/img05.gif) repeat-x;
+}
+
+#footer p {
+	margin: 0;
+	text-align: right;
+	font-size: x-small;
+	color: #999999;
+}
+
+#footer a {
+	color: #86D613;
+}
+
+/* Footer > Legal */
+
+#legal {
+}
+
+/* Footer > Links */
+
+#links {
+}
+
+th {
+	padding-right: 4px;
+}

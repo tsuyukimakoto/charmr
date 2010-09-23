@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans 'Check Your Mail box' %}{% endblock title %}
+
+{% block main %}
+<div class="section">
+    <div class="error">
+        <h3>{% trans 'Invitation email was sent. Check Your Mail box' %}</h3>
+    </div>
+</div>
+{% endblock %}

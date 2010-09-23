@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans 'Cancel?' %} | {{ object.name|escape }}{% endblock title %}
+
+{% block main %}
+  <div class="section">
+    <h2>{% trans 'Are you sure to cancel your claim?' %}</h2>
+    <div class="user_action">
+        <form method="POST">
+            <input type="submit" value="{% trans 'Cancel' %}" />
+        </form>
+    </div>
+  </div>
+{% endblock %}

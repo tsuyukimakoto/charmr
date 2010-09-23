@@ -1,0 +1,185 @@
+{% extends 'event/base.html' %}
+{% load i18n %}
+{% load markup %}
+
+{% block title %}{{ object.name|escape }}{% endblock title %}
+
+{% block overview %}
+		<h1><a href=".">{{ object.name|escape }}</a></h1>
+		<h2><a href=".">{{ object.sub_title|escape }}</a></h2>
+{% endblock overview %}
+
+{% block updates %}
+		<div id="updates" class="boxed">
+                    <h2 class="title">{% trans 'Comments' %}</h2>
+                    <div class="content">
+                        <ul>
+                    {% if object.eventcomment_set.all %}
+                        {% for comment in object.eventcomment_set.all %}
+                            <li><h3>{{ comment.date|date:"Y/m/d" }} {{ comment.date|date:"A g:i" }} by <a href="{% url user_detail comment.user.username %}">{{ comment.user.get_profile.nickname|escape }}</a></h3>
+                                <p>{{ comment.comment|escape }}</p></li>
+                        {% endfor %}
+                    {% else %}
+                        <li>{% trans "No Comments yet." %}</li>
+                    {% endif %}
+                        </ul>
+                    {% if user.is_authenticated %}
+                        <div class="action">
+                            <a href="{% url add_comment object.slug %}">{% trans 'Add Comment' %}</a>
+                        </div>
+                    {% endif %}
+                    </div>
+
+                    <h2 class="title">{% trans 'Documents' %}</h2>
+                    <div class="content">
+                        <ul>
+                    {% if object.eventfile_set.all %}
+                        {% for file in object.eventfile_set.all %}
+                            <li><h3>{{ file.date|date:"Y/m/d" }} {{ file.date|date:"A g:i" }} by <a href="{% url user_detail comment.user.username %}">{{ file.user.get_profile.nickname|escape }}</a></h3>
+                                <p><a href="{{ file.get_document_url }}">{{ file.title|escape }}</a></p>
+                                <p>{{ file.description|escape|linebreaksbr }}</p>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <li>{% trans "No Documents yet." %}</li>
+                    {% endif %}
+                        </ul>
+                    {% if user.is_authenticated %}
+                        <div class="action">
+                            <a href="{% url upload_document object.slug %}">{% trans 'Upload Document' %}</a>
+                        </div>
+                    {% endif %}
+                    </div>
+
+                    <h2 class="title">{% trans 'Trackbacks' %}</h2>
+                    <div class="content">
+                        <ul>
+                    {% if object.eventtrackback_set.all %}
+                        {% for trackback in object.eventtrackback_set.all %}
+                            <li><h3><a href="{{ trackback.url }}" rel="nofollow">{{ trackback.blog_name|escape }}</a> {{ trackback.date|date:"Y/m/d" }} {{ trackback.date|date:"A g:i" }}</h3>
+                                <p>{{ trackback.excerpt|escape }}</p></li>
+                        {% endfor %}
+                    {% else %}
+                        <li>{% trans "No Trackbacks yet." %}</li>
+                    {% endif %}
+                        </ul>
+                        <br />
+                        <p>{% trans "send trackback to" %} <br /><a href="{% url tbping object.slug %}">{% url tbping object.slug %}</a></p>
+                    </div>
+                </div>
+{% endblock %}
+
+{% block main %}
+      {% include 'snippet/claim_snippet.html' %}
+
+      <div class="section">
+        <h2>開催概要</h2>
+        <table class="information">
+          <tr>
+            <th>タイトル</th>
+            <td>{{ object.name|escape }} (<small>{{ object.sub_title|escape }}</small>)</td>
+          </tr>
+          <tr>
+            <th>開催日時: </th>
+            <td>
+                {% if object.time_to_start %}{{ object.time_to_start|date:"Y/m/d" }} {{ object.time_to_start|date:"A g:i" }} 〜 {% else %}未定{% endif %}
+                {% if object.time_to_finish %}{{ object.time_to_finish|date:"Y/m/d" }} {{ object.time_to_finish|date:"A g:i" }}{% else %}未定{% endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>受付期間: </th>
+            <td>
+                {% if object.apply_from %}{{ object.apply_from|date:"Y/m/d" }} {{ object.apply_from|date:"A g:i" }} 〜 {% else %}未定{% endif %}
+                {% if object.apply_to %}{{ object.apply_to|date:"Y/m/d" }} {{ object.apply_to|date:"A g:i" }}{% else %}未定{% endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>募集人数: </th>
+            <td>
+                {{ object.max_people }}人
+            </td>
+          </tr>
+          <tr>
+            <th>開催場所: </th><td><a href="{{ object.place.link }}">{{ object.place.name }}</a></td>
+          </tr>
+          <tr>
+            <th>住所：</th><td>{{ object.place.address }}</td>
+          </tr>
+          <tr>
+            <th>電話：</th><td>{{ object.place.tel }}</td>
+          </tr>
+          <tr>
+            <th>注意事項：</th><td>{{ object.place.attention }}</td>
+          </tr>
+        </table>
+      </div>
+      
+
+      {{ object.get_spec_text|restructuredtext }}
+      
+      {% for attendant in object.attendant_list %}
+      {% if forloop.first %}
+      <div class="section">
+        <div class="attendant">
+          <h2>{% trans "Attendant" %}</h2>
+          <table>
+        {% endif %}
+          <tr class="{% cycle odd,even %}">
+            <th>
+                  <img src="{{ attendant.user.get_profile.icon_url }}" clas="thumb_icon" /><br />
+                  <a href="{% url user_detail attendant.user.username %}">{{ attendant.user.get_profile.nickname|escape }}</a>
+                  {% ifequal attendant.user.id user.id %}
+                    <p class="action"><a href="{% url cancel object.slug %}">{% trans 'Cancel' %}</a></p>
+                    <p class="action"><a href="{% url edit_position_paper object.slug %}">{% trans 'Edit' %}</a></p>
+                  {% endifequal %}
+            </th>
+            <td>{{ attendant.pos_paper|escape|urlize|linebreaksbr }}</td>
+          </tr>
+        {% if forloop.last %}
+          </table>
+        </div>
+      </div>
+        {% endif %}
+      {% endfor %}
+      
+      {% for waiting in object.waiting_list %}
+      {% if forloop.first %}
+      <div class="section">
+        <div class="waiting">
+          <h2>{% trans "Waiting People" %}</h2>
+          <table>
+        {% endif %}
+          <tr class="{% cycle odd,even %}">
+            <th><a href="{% url user_detail waiting.user.username %}">
+                  <img src="{{ waiting.user.get_profile.icon_url }}" /><br />
+                  {{ waiting.user.get_profile.nickname|escape }}</a>
+                  {% ifequal waiting.user.id user.id %}
+                    <p class="action"><a href="{% url cancel object.slug %}">{% trans 'Cancel' %}</a></p>
+                    <p class="action"><a href="{% url edit_position_paper object.slug %}">{% trans 'Edit' %}</a></p>
+                  {% endifequal %}
+            </th>
+            <td>{{ waiting.pos_paper|escape|urlize|linebreaksbr }}</td>
+          </tr>
+        {% if forloop.last %}
+          </table>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+
+      {% include 'snippet/claim_snippet.html' %}
+
+      {% for staff in object.staff.all %}
+      {% if forloop.first %}
+      <div class="staff">
+        <h2>{% trans "Staff" %}</h2>
+        <ul>
+      {% endif %}
+          <li><a href="{% url user_detail staff.username %}">{{ staff.get_profile.nickname|escape }}</a></li>
+      {% if forloop.last %}
+        </ul>
+      </div>
+      {% endif %}
+      {% endfor %}
+
+{% endblock %}
